@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Button Menu with Bookmarklet</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            margin: 10px;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Button Menu with Bookmarklet</h1>
+
+    <div>
+        <button class="button" onclick="handleButtonClick('Button 1')">Button 1</button>
+        <button class="button" onclick="handleButtonClick('Button 2')">Button 2</button>
+        <button class="button" onclick="handleButtonClick('Button 3')">Button 3</button>
+        <button class="button" onclick="runBookmarklet()">Run Bookmarklet</button>
+    </div>
+
+    <script>
+        function handleButtonClick(buttonText) {
+            alert('Clicked: ' + buttonText);
+            // You can perform additional actions here based on the clicked button
+        }
+
+        function runBookmarklet() {
+            var script = document.createElement('script');
+            script.src = "https://cdn.jsdelivr.net/npm/eruda";
+            document.body.appendChild(script);
+            script.onload = function () {
+                eruda.init();
+            }
+        }
+    </script>
+
+</body>
+</html>
